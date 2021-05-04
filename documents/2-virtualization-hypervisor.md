@@ -6,6 +6,12 @@
 
 [2. Hypervisor](#hypervisor)
 
+- [2.1. Native](#native)
+
+- [2.2. Hosted](#hosted)
+
+- [2.3. Ring](#ring)
+
 [3. Phân loại Virtualization](#virtualization-types)
 
 ### <a name ="virtualization"> </a> 1. Virtualization
@@ -23,6 +29,32 @@
     - Nhiều máy được tạo ra với các hệ điều hành khác nhau tồn tại trên cùng một máy chủ vật lý.
 
 - **Virtual Machine (VM) là gì ?**: `Virtual Machine` hay còn gọi là máy ảo, là một môi trường hoạt động độc lập – phần mềm hoạt động cùng nhưng độc lập với hệ điều hành máy chủ.
+
+### <a name ="hypervisor"> </a> 2. Hypervisor
+
+`Hypervisor` hay còn gọi là phần mềm giám sát máy ảo: Là một chương trình phần mềm quản lý một hoặc nhiều máy ảo (VM). Nó được sử dụng để tạo, startup, dừng và reset lại các máy ảo. Các hypervisor cho phép mỗi VM hoặc “guest” truy cập vào lớp tài nguyên phần cứng vật lý bên dưới, chẳng hạn như CPU, RAM và lưu trữ. Nó cũng có thể giới hạn số lượng tài nguyên hệ thống mà mỗi máy ảo có thể sử dụng để đảm bảo cho nhiều máy ảo cùng sử dụng đồng thời trên một hệ thống.
+
+***--> Hypervisor là các phần mềm công nghệ để tạo máy ảo và giám sát, điều khiển máy ảo***
+
+Có 2 loại hypervisor là `Native` ( hay còn gọi là `Bare metal` ) và `Host Based`
+
+#### <a name ="native"> </a> 2.1. Native
+
+Một `Hypervisor` ở dạng `native` (hay còn gọi `bare-metal`) chạy trực tiếp trên phần cứng. Nó nằm giữa phần cứng và một hoặc nhiều hệ điều hành khách (Guest OS). Nó được khởi động trước cả hệ điều hành và tương tác trực tiếp với kernel. Điều này mang lại hiệu suất cao nhất có thể vì không có hệ điều hành chính nào cạnh tranh tài nguyên máy tính với nó. Tuy nhiên, nó cũng đồng nghĩa với việc hệ thống chỉ có thể được sử dụng để chạy các máy ảo vì hypervisor luôn phải chạy ngầm bên dưới.
+
+Các hypervisor dạng native này có thể kể đến như VMware ESXi, Microsoft Hyper-V và Apple Boot Camp.
+
+<img src="https://imgur.com/p04zlVA.png">
+
+#### <a name ="hosted"> </a> 2.2. Hosted
+
+Một `Hypervisor` dạng `hosted` được cài đặt trên một máy tính chủ (host computer), mà trong đó có một hệ điều hành đã được cài đặt. Nó chạy như một ứng dụng cũng như các phần mềm khác trên máy tính. Hầu hết các hypervisor dạng hosted có thể quản lý và chạy nhiều máy ảo cùng một lúc. Lợi thế của một hypervisor dạng hosted là nó có thể được bật lên hoặc thoát ra khi cần thiết, giải phóng tài nguyên cho máy chủ. Tuy nhiên, vì chạy bên trên một hệ điều hành, nó có thể đem lại hiệu suất tương tự như một hypervisor ở dạng native.
+
+Ví dụ về các hypervisor dạng hosted bao gồm VMware Workstation, Oracle VirtualBox và Parallels Desktop for Mac.
+
+#### <a name ="ring"> </a> 2.3. Ring
+
+
 
 ### <a name ="virtualization-types"> </a> 3. Phân loại Virtualization
 
