@@ -6,4 +6,62 @@
 
 [2. Hypervisor](#hypervisor)
 
+[3. Phân loại Virtualization](#virtualization-types)
+
 ### <a name ="virtualization"> </a> 1. Virtualization
+
+`Virtualization`, hay còn gọi là ảo hóa, là một công nghệ được thiết kế để tạo ra tầng trung gian giữa hệ thống phần cứng máy tính và phần mềm chạy trên nó. Ý tưởng của công nghệ ảo hóa máy chủ là từ một máy vật lý đơn lẻ có thể tạo thành nhiều máy ảo độc lập. Mỗi một máy ảo đều có một thiết lập nguồn hệ thống riêng rẽ, hệ điều hành riêng và các ứng dụng riêng. Ảo hóa có nguồn gốc từ việc phân chia ổ đĩa, chúng phân chia một máy chủ thực thành nhiều máy chủ logic. Một khi máy chủ thực được chia, mỗi máy chủ logic có thể chạy một hệ điều hành và các ứng dụng độc lập.
+
+<img src="https://imgur.com/ftzDN9L.png">
+
+- **Ưu điểm:**
+
+    - Tiết kiệm chi phí và tối ưu hóa hạ tầng CNTT.
+
+    - Độc lập giữa các hệ điều hành khác nhau.
+
+    - Nhiều máy được tạo ra với các hệ điều hành khác nhau tồn tại trên cùng một máy chủ vật lý.
+
+- **Virtual Machine (VM) là gì ?**: `Virtual Machine` hay còn gọi là máy ảo, là một môi trường hoạt động độc lập – phần mềm hoạt động cùng nhưng độc lập với hệ điều hành máy chủ.
+
+### <a name ="virtualization-types"> </a> 3. Phân loại Virtualization
+
+- Một số kiểu Virtualization:
+
+    - RAM virtualization
+
+    - CPU virtualization
+
+    - Network virtualization
+
+    - Device I/O virtualization
+
+#### <a name ="cpu-virtualization"> </a> 3.1. CPU virtualization
+
+- **Full Virtualization:**
+
+<img src="https://imgur.com/bwGUmLs.png">
+
+Trong giải pháp này, các non-virtualizable instruction từ guest OS được translate qua binary translation ở virtualization layer và cache lại kết quả dùng cho các lần sau. Còn user level application thì thực hiện direct execution xuyên qua virtualization layer. Bằng cách này, trở ngại các chỉ thị guest OS không hoạt động ở ring khác 0 bị vượt qua còn các user level application vẫn họat động ở native speed (tốc độ đáp ứng yêu cầu giống như khi không có ảo hóa). Guest OS hoàn toàn không nhận ra nó đang nằm trên một lớp ảo hóa vì các low-level request không có gì thay đổi. Do đó guestOS hoàn toàn không phải chỉnh sửa gì.
+
+<img src="https://imgur.com/xJMBEC5.png">
+
+**Hiểu một cách đơn giản:** Guest OS sẽ không bị sửa đổi hệ điều hành để tương thích với phần cứng, mà sẽ dịch nhị phân các yêu cầu, rồi đưa cho VMM, xong VMM làm trung gian đưa cho Hardware xử lý.
+
+Nhìn vào `ring = 1` của Guest OS, thì Guest OS này chỉ chạy trên quyền `user lever`, chứ không chạy trên quyền `privilege`, không trực tiếp chạy trên hardware. Nhưng vì code của OS không bị sửa đổi, nên Guest OS không biết điều đó, và sẽ làm việc bình thường như trên máy thật vậy, nhưng thực chất là đang làm việc với VMM.
+
+<img src="https://imgur.com/f54jN2j.png">
+
+- **Paravirtualization:**
+
+<img src="https://imgur.com/XQDNZgK.png">
+
+Trong paravirtualization, hypervisor sẽ cung cấp hypercall interface. Guest OS sẽ được chỉnh sửa kernel code để thay thế `non-virtualizable instruction` bằng các hypercall này. Do kernel code của guest OS phải chỉnh sửa nên giải pháp này không thể sử dụng được một số hệ điều hành mã nguồn đóng như **Windows**. Thêm nữa, do guest OS sử dụng hypercall nên nó sẽ biết được nó đang nằm trên một virtualization layer.
+
+<img src="https://imgur.com/0PLO2UK.png">
+
+**Hiểu một cách đơn giản:** Guest OS bây giờ đã bị sửa đổi 1 tí, để có thể nằm ở `ring 0`. Guest OS đã hiểu vị trí hiện tại chỉ là khách, nhưng có thể nhìn trực tiếp tài nguyên của máy thật, quyền truy cập vào hardware vì hiện tại đang ở `ring 0`.
+
+Nhưng đối với các App, vẫn thấy Guest OS này không có gì thay đổi, vì App cần interface gì thì Guest OS vẫn cung cấp cho interface ý, vẫn là API đó.
+
+<img src="https://imgur.com/4FJQwr8.png">
