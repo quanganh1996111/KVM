@@ -73,4 +73,4 @@ Thêm vào đó, nó cũng giúp người dùng quản lí tốt hơn tài nguy�
   hiệu quả hơn so với loại 02, vì vậy khi triển khai trong thực tế, ảo hóa Loại 01 (Bare-Metal Hypervisor) được sử dụng, 
   loại 02 chỉ sử dụng trong các trường hợp thử nghiệm, hoặc mục đích học tập.
 
-  <img src ="http://i.imgur.com/x57HzRc.png">
+  <img src ="https://imgur.com/wjncVaT.png">
