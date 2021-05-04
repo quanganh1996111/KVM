@@ -8,7 +8,7 @@
 
 [3. Lựa chọn công nghệ ảo hóa phù hợp](#cong-nghe)
 
-------
+[Tài liệu tham khảo](#tai-lieu-tham-khao)
 
 ### <a name ="gioi-thieu"> </a> 1. Giới thiệu về ảo hóa
 
@@ -74,3 +74,7 @@ Thêm vào đó, nó cũng giúp người dùng quản lí tốt hơn tài nguy�
   loại 02 chỉ sử dụng trong các trường hợp thử nghiệm, hoặc mục đích học tập.
 
   <img src ="https://imgur.com/wjncVaT.png">
+
+### <a name ="tai-lieu-tham-khao"> </a> Tài liệu tham khảo
+
+https://github.com/thaonv1/meditech-thuctap/blob/master/ThaoNV/KVM/tong-quan-ao-hoa.md
