@@ -25,7 +25,7 @@ Tuy nhiên vẫn còn đó một vài những hạn chế trong việc quản l�
   </ul>
 - Chính vì vậy, ảo hóa được coi là giải pháp nhằm tối ưu hóa việc sử dụng và khai thác tài nguyên vật lý.
 - Vậy ảo hóa là gì?
-- Ảo hóa được hiểu một cách đơn giản là chạy nhiều máy chủ ảo trên hạ tầng 01 máy chủ vật lý. 
+  <li>Ảo hóa được hiểu một cách đơn giản là chạy nhiều máy chủ ảo trên hạ tầng 01 máy chủ vật lý. 
 Trên mỗi máy ảo có hệ điều hành riêng giống như 01 máy chủ thật và được triển khai các môi trường, 
 ứng dụng khác nhau để phù hợp với hoạt động và mục đích của doanh nghiệp.
 
