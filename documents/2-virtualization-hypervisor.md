@@ -119,4 +119,3 @@ Nhưng đối với các App, vẫn thấy Guest OS này không có gì thay đ�
 ### <a name ="tham-khao"> </a> Nguồn tham khảo
 
 https://news.cloud365.vn/kvm-tong-quan-ve-virtualization-va-hypervisor/
-
