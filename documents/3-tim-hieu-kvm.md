@@ -6,6 +6,8 @@
 
 [3. Kiến trúc của KVM](#cau-truc)
 
+[Nguồn tham khảo](#tham-khao)
+
 ## <a name ="gioi-thieu"> </a> 1. Giới thiệu về KVM
 
 KVM (Kernel-based virtual machine) là giải pháp ảo hóa cho hệ thống linux trên nền tảng phần cứng x86 có các module mở rộng hỗ trợ ảo hóa (Intel VT-x hoặc AMD-V). Về bản chất, KVM không thực sự là một hypervisor có chức năng giải lập phần cứng để chạy các máy ảo. Chính xác KVM chỉ là một module của kernel linux hỗ trợ cơ chế mapping các chỉ dẫn trên CPU ảo (của guest VM) sang chỉ dẫn trên CPU vật lý (của máy chủ chứa VM). Hoặc có thể hình dung KVM giống như một driver cho hypervisor để sử dụng được tính năng ảo hóa của các vi xử lý như Intel VT-x hay AMD-V, mục tiêu là tăng hiệu suất cho guest VM.
@@ -87,3 +89,10 @@ Trong kiến trúc của KVM, Virtual machine được thực hiện như là qu
     - Cung cấp API để các tool như virsh có thể giao tiếp và quản lí các VM.
 
     - Cung cấp chế độ quản lí từ xa an toàn.
+
+
+## <a name ="tham-khao"> </a> Nguồn tham khảo
+
+https://github.com/domanhduy/ghichep/blob/master/DuyDM/KVM/docs/Tim-hieu-ve-cong-nghe-KVM.md
+
+https://github.com/thaonv1/meditech-thuctap/blob/master/ThaoNV/KVM/tim-hieu-kvm.md
