@@ -12,4 +12,4 @@
 
 [3. Tìm hiểu về KVM](https://github.com/quanganh1996111/KVM/blob/main/documents/1-tong-quan-kvm/3-tim-hieu-kvm.md)
 
-[4.Cơ chế hoạt động của KVM](https://github.com/quanganh1996111/KVM/blob/main/documents/1-tong-quan-kvm/4-cach-hoat-dong-cua-kvm.md)
+[4. Cơ chế hoạt động của KVM](https://github.com/quanganh1996111/KVM/blob/main/documents/1-tong-quan-kvm/4-cach-hoat-dong-cua-kvm.md)
