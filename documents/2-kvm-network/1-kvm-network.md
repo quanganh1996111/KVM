@@ -42,6 +42,18 @@ Chú ý ta không thể kết nối switch ảo với card wireless do HĐH khô
 
 <img src="https://imgur.com/FUSVibY.png">
 
+- Tap : có thể hiểu nó là một giao diên mạng để các máy ảo có thể giao tiếp được với bridge và nó nằm trong nhân kernel. Tap hoat động ở lớp 2 trong mô hình OSI
+
+- fd (forward data): dùng để chuyển tiếp data từ máy ảo
+
+**Chức năng của một switch ảo do Linux bridge tạo ra:**
+
+- STP: là tính năng chống loop gói tin trong switch.
+
+- VLan: là tính năng rất quan trọng trong một switch.
+
+- FDB: là tính năng chuyển gói tin theo database được xây dựng giúp tăng tốc độ của switch.
+
 ## <a name ="nat"> </a> 1. NAT
 
 **Mô hình:**
@@ -51,3 +63,9 @@ Chú ý ta không thể kết nối switch ảo với card wireless do HĐH khô
 Nếu như với mô hình linux bridge KVM tạo ra một virtual switch thì ta cũng có thể hình dung với mô hình mạng NAT này KVM sẽ tạo ra một thiết bị là virtual router. Khi ta tạo một dải mạng với mô hình NAT thì lúc này virtual router sẽ NAT từ dải mạng mà ta tạo ra ra địa chỉ của card mạng vật lý trên KVM host để đi ra ngoài internet.
 
 Khi một dải mạng tạo ra ta sẽ thấy trên KVM host xuất hiện một thêm một card mạng. Card mạng này đóng vai trò là gateway cho dải mạng mà ta tạo ra.
+
+**Cấu trúc hoạt động:**
+
+<img src="https://imgur.com/LcyE3ax.png">
+
+VM sẽ được gán một IP trên mạng con khác với Máy chủ Vật lý, nhưng VM có khả năng giao tiếp với mạng bên ngoài giống như máy chủ, nhưng các máy chủ từ bên ngoài không thể truy cập trực tiếp vào máy ảo của bạn.
