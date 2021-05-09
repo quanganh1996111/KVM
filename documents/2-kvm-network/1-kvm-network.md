@@ -4,6 +4,8 @@
 
 [2. NAT](#nat)
 
+[Nguồn tham khảo](#tham-khao)
+
 KVM được biết đến là một cơ sở hạn tầng ảo hóa cho nhân Linux. KVM cũng cung cấp các mô hình mạng trong việc ảo hóa network. Các mô hình bao gồm:
 
 - NAT.
@@ -69,3 +71,9 @@ Khi một dải mạng tạo ra ta sẽ thấy trên KVM host xuất hiện mộ
 <img src="https://imgur.com/LcyE3ax.png">
 
 VM sẽ được gán một IP trên mạng con khác với Máy chủ Vật lý, nhưng VM có khả năng giao tiếp với mạng bên ngoài giống như máy chủ, nhưng các máy chủ từ bên ngoài không thể truy cập trực tiếp vào máy ảo của bạn.
+
+## <a name ="tham-khao"> </a> Nguồn tham khảo
+
+https://jamielinux.com/docs/libvirt-networking-handbook/bridged-network.html
+
+https://blog.cloud365.vn/linux/mo-hinh-mang-nat-kvm/
