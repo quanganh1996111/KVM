@@ -6,6 +6,8 @@
 
 [2. Định dạng file trong KVM](#dinh-dang)
 
+[Nguồn tham khảo](#tham-khao)
+
 ## <a name ="file-image"> </a> 1. File Image trong KVM
 
 Công nghệ ảo hóa phần cứng QEMU rất giống với KVM. Cả hai đều được điều khiển thông qua libvirt, cả hai đều hỗ trợ tính năng thiết lập giống nhau, và tất cả các hình ảnh máy ảo tương thích với KVM thì cũng tương thích với QEMU. Điểm khác biệt chính giữa QEMU và KVM là QEMU không hỗ trợ ảo hóa bản địa (native virtualization); do đó, QEMU có hiệu suất kém hơn KVM.
@@ -77,3 +79,9 @@ qemu-img convert -f qcow2 -O raw /<đường_dẫn_file_qcow2> /<đường_dẫn
 - Chuyển đổi từ raw sang qcow2:
 
 qemu-img convert -f raw -O qcow2/<đường_dẫn_file_raw> /<đường_dẫn_lưu_file_qcow2>
+
+## <a name ="tham-khao"> </a> Nguồn tham khảo
+
+https://github.com/domanhduy/ghichep/blob/master/DuyDM/KVM/docs/Phan-biet-raw-qcow-iso-cua-image.md
+
+https://docs.openstack.org/image-guide/convert-images.html
