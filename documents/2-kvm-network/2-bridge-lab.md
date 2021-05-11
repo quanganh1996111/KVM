@@ -1,10 +1,8 @@
 # Tạo và quản lý Linux-bridge
 
-## Mục lục
 
-[1. Chuẩn bị môi trường KVM](#prepare)
 
-## <a name ="prepare"> </a> 1. Chuẩn bị môi trường KVM
+## 1. Chuẩn bị môi trường KVM
 
 Chuẩn bị Một Server có cài đặt KVM - Hệ điều hành CentOS 7
 
