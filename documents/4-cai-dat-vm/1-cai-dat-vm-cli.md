@@ -69,3 +69,73 @@ Có 3 cách tạo VM bằng `virt-install`:
 - `--pxe` : Sử dụng giao thức boot PXE để tiến hành cài đặt máy ảo.
 
 - `--import` : Bỏ qua phần cài đặt os cho máy ảo, dùng file image có sẵn thông qua tùy chọn `--disk` hoặc `filesystem`.
+
+- `--os-type=OS_TYPE` : Chọn loại hệ điều hành (ví dụ như linux hoặc window). Mặc định, virt-install sẽ tự động xác định thông qua file cài đặt.
+
+- `--os-variant=OS_VARIANT` : Là một optional command, cho biết xa hơn về loại hệ điều hành (ví dụ như fedora8 hoặc winxp). Sử dụng `osinfo-query os` để xem tất cả list OS.
+
+- `boot = BOOTOPTS` : Thiết lập những cài đặt cơ bản trước khi boot. Tùy chọn này cho phép người dùng đặt thứ tự thiết bị boot. Ví dụ: `--boot cdrom,fd,hd,network,menu=on`
+
+**Tùy chọn lưu dữ liệu:**
+
+- `--disk=DISKOPTS` : Thiết lập nơi lưu dữ liệu của máy ảo. Format chung: `--disk tuychon1=giatri1,tuychon2=giatri2,...`
+
+- Các tùy chọn đi kèm với `--disk`:
+
+    - "path" : Đường dẫn tới nơi dùng để chứa dữ liệu, thông thường đây là nơi chưa có dữ liệu, KVM sẽ tạo 1 storage mới.
+
+    - "pool" : Một pool (nơi chứa các storage) của libvirt đã được tạo sẵn, tại đây, KVM có thể tạo các storage mới. Tùy chọn "size" là bắt buộc
+
+    - "device" : Loại ổ đĩa.
+
+    - "bus" : Loại bus, có thể là "ide", "scsi", "usb", "virtio" hoặc "xen".
+
+    - "perms" : Quyền truy cập ổ đĩa. Mặc định là "rw"(Read/Write). Một số tùy chọn khác là "ro" (Readonly) và "sh" (Shared Read/Write).
+
+    - "sparse" : Liệu có bỏ qua việc phân bố toàn bộ dung lượng của storage mới hay không. Người dùng có thể chọn "true" hoặc "false". Mặc định sẽ là "true".
+
+    - "cache": Chế độ bộ nhớ cache được sử dụng, người dùng có thể chọn "none", "writethrough" hoặc "writeback".
+
+    - "format" : Định dạng file được dùng nếu tạo ổ đĩa, một số định dạng thông dụng là "raw", "qcow2", "vmdk", ...
+
+    - "error_policy" : Những hành động mà máy ảo có thể làm trong trường hợp ghi lỗi. Người dùng có thể chọn "none", "stop" hoặc "enospace".
+
+    - "serial": Số seri của ổ đĩa ảo.
+
+- `--filesystem` : Thư mục trên máy chủ được dùng để lưu trữ máy ảo.
+
+- `--nodisks` : Không sử dụng ổ cứng nào, thường thì những máy ao này sẽ chạy theo file image hoặc tải từ trên mạng.
+
+- `-f` hoặc `--file` : giống với `--disk path=DISKFILE`.
+
+- `-s DISKSIZE`, hoặc `--file-size=DISKSIZE`.
+
+**Các tùy chọn NETWORK:**
+
+- `w` hoặc `--network=NETWORK` : Chọn chế độ kết nối tới máy chủ. Có 3 chế độ đó là:
+
+    - ` bridge=BRIDGE`
+
+    - ` network=NAME`
+    
+    - ` user`
+
+- Một vài tùy chọn khác có thể dùng đi kèm đó là model và mac:
+
+    - `nonenetworks` : Không sử dụng card mạng.
+
+    - `-b` hoặc `--bridge=BRIDGE` : Giống với `--network bridge = bridge_name`.
+
+**Các tùy chọn Đồ họa:**
+
+- `--graphics` : Đi kèm với các tùy chọn sau
+
+    - "type": Loại đồ họa. Có thể chọn "vnc" hoặc "sdl", "spice" và "none"
+
+    - "port": nếu người dùng sử dụng vnc hoặc spice thì sẽ phải khai báo port cố định cho dịch vụ này
+
+    - Một vài tùy chọn khác như "listen", "password".
+
+**Các tùy chọn ảo hóa:**
+
+- `-v` hoặc `--hvm` : Ảo hóa toàn bộ.
