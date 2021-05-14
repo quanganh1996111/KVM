@@ -4,7 +4,9 @@
 
 [1. Tìm hiểu qua về virt-install](#tim-hieu)
 
-[2. 2. Tìm hiểu các options khi sử dụng virt-install để tạo VM](#option)
+[2. Tìm hiểu các options khi sử dụng virt-install để tạo VM](#option)
+
+[3. Các cách tạo VM bằng virt-install](#tao-vm)
 
 ## <a name ="tim-hieu"> </a> 1. Tìm hiểu qua về virt-install
 
@@ -139,3 +141,34 @@ Có 3 cách tạo VM bằng `virt-install`:
 **Các tùy chọn ảo hóa:**
 
 - `-v` hoặc `--hvm` : Ảo hóa toàn bộ.
+
+- `-p` hoặc `--paravirt`: Ảo hóa song song.
+
+- `--virt-type` : Chọn hypervisor sẽ cài đặt lên (KVM, WEMU hoặc XEN...)
+
+**Các tùy chọn thiết bị:**
+
+- `--host-device=HOSTDEV`: gán các thiết bị vật lý cho máy ảo.
+
+- `--serial` : Thiết bị kết nối cho máy ảo.
+
+- `--console` : Kết nối text console giữa máy ảo và máy chủ.
+
+**Một số tùy chọn khác:**
+
+- `--atutostart`
+
+- `--print-xml`
+
+- `wait`
+
+- `--force`
+
+- `--check-cpu`
+
+- `-q` hoặc `--quiet`
+
+## <a name ="#tao-vm"> </a> 3. Các cách tạo VM bằng virt-install
+
+### 3.1. Tạo từ file image
+
