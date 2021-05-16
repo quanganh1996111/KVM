@@ -170,5 +170,32 @@ Có 3 cách tạo VM bằng `virt-install`:
 
 ## <a name ="#tao-vm"> </a> 3. Các cách tạo VM bằng virt-install
 
-### 3.1. Tạo từ file image
+### 3.1. Tạo từ file ISO
 
+Một số tham số cơ bản để khởi tạo VM bằng file ISO
+
+```
+virt-install \
+--name centos7 \ # Tên VM
+--ram 2048 \ # RAM
+--disk path=/var/kvm/images/centos7-01.img,size=30 \ #path lưu disk cho vm
+--network bridge=br0 \ # card mạng
+--os-type=linux \ # loại OS
+--os-variant=rhel7 \ # Tên OS 
+--location=/var/lib/libvirt/file-iso/CentOS-7-x86_64-Minimal-1804.iso #path chứa file ISO
+```
+
+### 3.2. Tạo từ file image
+
+virt-install \
+--name centos7-02 \
+--ram 1024 \
+--vcpus 1 \
+--os-variant=rhel7 \
+--disk path=/var/lib/libvirt/images/centos7-01.img,format=qcow2,bus=virtio,cache=none \
+--network bridge=br0 \
+--hvm --virt-type kvm \
+--vnc --noautoconsole \
+--import
+
+### 3.3. Tạo từ Internet
