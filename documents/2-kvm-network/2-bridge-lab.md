@@ -31,7 +31,7 @@ Lưu ý: phần `HWADDR` kiểm tra đúng thông tin địa chỉ MAC, trước
 DEVICE=br0
 TYPE=Bridge
 BOOTPROTO=static
-IPADDR=172.16.2.13
+IPADDR=172.16.2.13 #IP card vat ly
 GATEWAY=172.16.10.1
 NETMASK=255.255.240.0
 ONBOOT=yes
