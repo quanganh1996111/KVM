@@ -54,3 +54,6 @@ Sau khi hoàn thành cài đặt, kiểm tra thấy VM đã nhận IP với dả
 
 <img src="https://imgur.com/MEwMhPc.png">
 
+- Phân tích đường đi của VM khi sử dụng card bridge, ta có thể thấy đường đi sẽ đi theo Gateway của card vật lý rồi đi ra Internet.
+
+<img src="https://imgur.com/609ArVL.png">
