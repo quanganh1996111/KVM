@@ -8,6 +8,8 @@
 
 [3. Cài đặt Server Webvirt](#cai-dat)
 
+[4. Add Host KVM vào Webvirt](#add-host)
+
 ## <a name ="moi-truong"> </a> 1. Chuẩn bị môi trường
 
 Chuẩn bị Một Server cài đặt KVM - Một Server cài đặt Webvirt.
@@ -213,3 +215,57 @@ systemctl restart supervisord
 
 <img src="https://imgur.com/c7iCKgN.png">
 
+## <a name ="add-host"> </a> 4. Add host KVM vào Webvirt
+
+**Bước 1:** Kiểm tra chế độ ảo hóa KVM
+
+```
+cat /proc/cpuinfo| egrep -c "vmx|svm"
+```
+
+Giá trị trả về khác 0 là OK:
+
+<img src="https://imgur.com/RTdM871.png">
+
+**Bước 2:** Chỉnh sửa cấu hình libvirt
+
+```
+vi /etc/libvirt/libvirtd.conf
+```
+
+Sửa các thông số trong file cấu hình như sau:
+
+```
+listen_tls = 0
+listen_tcp = 1
+listen_addr = "0.0.0.0"
+tcp_port = "16509"
+auth_tcp = "none"
+```
+
+<img src="https://imgur.com/SUgZUT4.png">
+
+- Bỏ comment dòng `LIBVIRTD_ARGS="--listen"`:
+
+```
+vi /etc/sysconfig/libvirtd
+```
+
+<img src="https://imgur.com/K6bWJhh.png">
+
+- Kiểm tra lại cài đặt:
+
+```
+systemctl restart libvirtd
+ps ax | grep libvirtd
+ss -antup | grep libvirtd
+virsh -c qemu+tcp://127.0.0.1/system
+```
+
+<img src="https://imgur.com/P49e5vv.png">
+
+- Add Host KVM trên giao diện Webvirt:
+
+<img src="https://imgur.com/ACxPsV0.png">
+
+<img src="https://imgur.com/4Xrd5C0.png">
